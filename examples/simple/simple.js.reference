@@ -1,0 +1,11 @@
+'use strict';
+$(function() {
+  // Usage example
+  document.getElementById('usage-example-execute').onclick = function() {
+    snabbt(document.getElementById('usage-example-execute'), {
+      position: [100, 0, 0],
+      rotation: [0, 0, Math.PI],
+      easing: 'ease'
+    });
+  };
+});

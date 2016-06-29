@@ -1,0 +1,32 @@
+OASISFormat: 0.4
+Name:        snabbt
+Version:     0.0.0
+Synopsis:    OCaml bindings for snabbt.js
+Authors:     Si Beaumont
+License:     ISC
+Plugins:     META (0.4), DevFiles (0.4)
+BuildTools:  ocamlbuild
+OCamlVersion: >= 4.01.0
+
+AlphaFeatures: ocamlbuild_more_args
+XOCamlbuildPluginTags: package(js_of_ocaml.ocamlbuild)
+
+PreBuildCommand: if [[ -h examples/simple/simple.js ]]; then rm examples/simple/simple.js; fi
+PostBuildCommand: ln -sf ../../_build/examples/simple/simple.js examples/simple/simple.js
+
+Flag examples
+  Description:  build example programs
+  Default:      false
+
+Library snabbt
+  Path:         lib
+  Modules:      Snabbt
+  BuildDepends: js_of_ocaml, js_of_ocaml.syntax
+
+Executable simple
+  Path:             examples/simple
+  MainIs:           simple.ml
+  Build$:           flag(examples)
+  CompiledObject:   byte
+  Install:          false
+  BuildDepends:     js_of_ocaml, js_of_ocaml.syntax, snabbt, lwt

@@ -1,0 +1,30 @@
+# OASIS_START
+# DO NOT EDIT (digest: 25ad630b63d8b69de388ab7fd9245f4e)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library snabbt
+"lib/snabbt.cmxs": use_snabbt
+<lib/*.ml{,i,y}>: package(js_of_ocaml)
+<lib/*.ml{,i,y}>: package(js_of_ocaml.syntax)
+# Executable simple
+"examples/simple/simple.byte": package(js_of_ocaml)
+"examples/simple/simple.byte": package(js_of_ocaml.syntax)
+"examples/simple/simple.byte": package(lwt)
+"examples/simple/simple.byte": use_snabbt
+<examples/simple/*.ml{,i,y}>: package(js_of_ocaml)
+<examples/simple/*.ml{,i,y}>: package(js_of_ocaml.syntax)
+<examples/simple/*.ml{,i,y}>: package(lwt)
+<examples/simple/*.ml{,i,y}>: use_snabbt
+# OASIS_STOP

@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 42f9defaf678bbcb8346781bc9a85048)
+version = "0.0.0"
+description = "OCaml bindings for snabbt.js"
+requires = "js_of_ocaml js_of_ocaml.syntax"
+archive(byte) = "snabbt.cma"
+archive(byte, plugin) = "snabbt.cma"
+archive(native) = "snabbt.cmxa"
+archive(native, plugin) = "snabbt.cmxs"
+exists_if = "snabbt.cma"
+# OASIS_STOP
+
